@@ -16,7 +16,6 @@ public class Customer {
     };
 
     public String statement() {
-        double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
@@ -26,21 +25,32 @@ public class Customer {
             // add frequent renter points
             frequentRenterPoints ++;
 // add bonus for a two day Race rental
-            if ((each.getTool().getPriceCode() == EScooter.RACE)
+            if ((each.getEScooter().getPriceCode() == EScooter.RACE)
                     &&
                     each.getDaysRented() > 1) frequentRenterPoints ++;
 //show figures
-            result += "\t" + each.getTool().getTitle()+ "\t" +
+            result += "\t" + each.getEScooter().getTitle()+ "\t" +
             String.valueOf(each.getCharge())                    + "\n";
-            totalAmount += each.getCharge();
         }
 //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) +
+        result += "Amount owed is " + String.valueOf(getTotalCharge()) +
                 "\n";
         result += "You earned " + String.valueOf(frequentRenterPoints)
                 +
                 " frequent renter points";
         return result;
     }
+
+    private double getTotalCharge() {
+        double totalAmount = 0;
+        Enumeration rentals = _rentals.elements();
+        String result = "Rental Record for " + getName() + "\n";
+        while (rentals.hasMoreElements()) {
+            Rental each = (Rental) rentals.nextElement();
+            totalAmount += each.getCharge();
+        }
+        return totalAmount;
+    }
+
 
 }

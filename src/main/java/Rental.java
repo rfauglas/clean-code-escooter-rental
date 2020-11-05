@@ -1,20 +1,20 @@
 public class Rental {
-    private EScooter _tool;
+    private EScooter eScooter;
     private int _daysRented;
     public Rental(EScooter tool, int daysRented) {
-        _tool = tool;
+        eScooter = tool;
         _daysRented = daysRented;
     }
     public int getDaysRented() {
         return _daysRented;
     }
-    public EScooter getTool() {
-        return _tool;
+    public EScooter getEScooter() {
+        return eScooter;
     }
 
     public double getCharge() {
         double thisAmount = 0;
-        switch (getTool().getPriceCode()) {
+        switch (getEScooter().getPriceCode()) {
             case EScooter.PROFESSIONAL:
                 thisAmount += 2;
                 if (getDaysRented() > 2)
