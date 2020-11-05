@@ -23,7 +23,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 //determine amounts for each line
-            double thisAmount = each.amountFor();
+            double thisAmount = each.getCharge();
 // add frequent renter points
             frequentRenterPoints ++;
 // add bonus for a two day Race rental

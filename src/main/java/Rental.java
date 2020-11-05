@@ -12,7 +12,7 @@ public class Rental {
         return _tool;
     }
 
-    public double amountFor() {
+    public double getCharge() {
         double thisAmount = 0;
         switch (getTool().getPriceCode()) {
             case EScooter.PROFESSIONAL:
