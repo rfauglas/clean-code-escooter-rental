@@ -1,22 +1,22 @@
 public class EScooter {
-    private int _priceCode;
+    private int priceCode;
     public static final int REGULAR = 2;
     public static final int PROFESSIONAL = 0;
     public static final int RACE = 1;
 
-    private String _title;
+    private String modelName;
     public EScooter(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
+        this.modelName = title;
+        this.priceCode = priceCode;
     }
     public int getPriceCode() {
-        return _priceCode;
+        return priceCode;
     }
     public void setPriceCode(int arg) {
-        _priceCode = arg;
+        priceCode = arg;
     }
-    public String getTitle (){
-        return _title;
+    public String getModelName(){
+        return modelName;
     }
 
 

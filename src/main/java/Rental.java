@@ -1,12 +1,12 @@
 public class Rental {
     private EScooter eScooter;
-    private int _daysRented;
+    private int daysRented;
     public Rental(EScooter tool, int daysRented) {
         eScooter = tool;
-        _daysRented = daysRented;
+        this.daysRented = daysRented;
     }
     public int getDaysRented() {
-        return _daysRented;
+        return daysRented;
     }
     public EScooter getEScooter() {
         return eScooter;
