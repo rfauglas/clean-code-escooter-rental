@@ -31,4 +31,14 @@ public class Rental {
         }
         return thisAmount;
     }
+
+    int getFrequentRenterPoints() {
+        int frequentRenterPoints = 0;
+        frequentRenterPoints ++;
+// add bonus for a two day Race rental
+        if ((getEScooter().getPriceCode() == EScooter.RACE)
+                &&
+                getDaysRented() > 1) frequentRenterPoints ++;
+        return frequentRenterPoints;
+    }
 }
