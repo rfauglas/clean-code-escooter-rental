@@ -23,7 +23,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 //determine amounts for each line
-            double thisAmount = amountFor(each);
+            double thisAmount = each.amountFor();
 // add frequent renter points
             frequentRenterPoints ++;
 // add bonus for a two day Race rental
@@ -44,23 +44,4 @@ public class Customer {
         return result;
     }
 
-    private double amountFor(Rental each) {
-        double thisAmount = 0;
-        switch (each.getTool().getPriceCode()) {
-            case EScooter.PROFESSIONAL:
-                thisAmount += 2;
-                if (each.getDaysRented() > 2)
-                    thisAmount += (each.getDaysRented() - 2) * 1.5;
-                break;
-            case EScooter.RACE:
-                thisAmount += each.getDaysRented() * 3;
-                break;
-            case EScooter.REGULAR:
-                thisAmount += 1.5;
-                if (each.getDaysRented() > 3)
-                    thisAmount += (each.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return thisAmount;
-    }
 }
