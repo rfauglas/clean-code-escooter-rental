@@ -23,8 +23,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = (Rental) rentals.nextElement();
 //determine amounts for each line
-            double thisAmount = each.getCharge();
-// add frequent renter points
+            // add frequent renter points
             frequentRenterPoints ++;
 // add bonus for a two day Race rental
             if ((each.getTool().getPriceCode() == EScooter.RACE)
@@ -32,8 +31,8 @@ public class Customer {
                     each.getDaysRented() > 1) frequentRenterPoints ++;
 //show figures
             result += "\t" + each.getTool().getTitle()+ "\t" +
-            String.valueOf(thisAmount)                    + "\n";
-            totalAmount += thisAmount;
+            String.valueOf(each.getCharge())                    + "\n";
+            totalAmount += each.getCharge();
         }
 //add footer lines
         result += "Amount owed is " + String.valueOf(totalAmount) +
