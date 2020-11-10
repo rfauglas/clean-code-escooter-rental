@@ -5,6 +5,16 @@ public class CustomerTest {
 
     @Test
     public void testCustomerStatement() {
+        Assertions.assertTrue(initCustomer().statement().contains("Amount owed is 5.0"));
+    }
+
+
+    @Test
+    public void testCustomerHtmlStatement() {
+        Assertions.assertTrue(initCustomer().htmlStatement().contains("<P>You owe <EM>5.0"));
+    }
+
+    private Customer initCustomer() {
         Customer customer = new Customer("customer name");
         EScooter screwDriver = new EScooter("screw driver", EScooter.PROFESSIONAL);
         EScooter hammer = new EScooter("hammer", EScooter.RACE);
@@ -14,7 +24,7 @@ public class CustomerTest {
 
         customer.addRental(screwDriverRental);
         customer.addRental(hammerRental);
-        Assertions.assertTrue(customer.statement().contains("Amount owed is 5.0"));
+        return customer;
     }
 }
 
