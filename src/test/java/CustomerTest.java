@@ -16,8 +16,8 @@ public class CustomerTest {
 
     private Customer initCustomer() {
         Customer customer = new Customer("customer name");
-        EScooter screwDriver = new EScooter("screw driver", EScooter.PROFESSIONAL);
-        EScooter hammer = new EScooter("hammer", EScooter.RACE);
+        EScooter screwDriver = new EScooter("screw driver",Price.PROFESSIONAL );
+        EScooter hammer = new EScooter("hammer", Price.RACE);
 
         Rental screwDriverRental = new Rental(screwDriver, 1);
         Rental hammerRental = new Rental(hammer, 1);
